@@ -4,9 +4,9 @@ These are my i3 window manager configs in Ubuntu
 
 - Install
 
-picom
-feh
-rofi
+```bash
+sudo apt install picom feh rofi
+```
 
 * Usage
 
