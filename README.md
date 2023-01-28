@@ -3,7 +3,7 @@ These are my i3 window manager configs in Ubuntu
 # Requirements
 
 ```bash
-sudo apt install picom feh rofi
+sudo apt install i3 picom feh rofi
 ```
 
 # Usage
@@ -14,3 +14,4 @@ sudo apt install picom feh rofi
 
 - Put the **fonts** into **~/.fonts/**.
 
+- Put an image file in **~/Pictures/** named **background.jpg**.
