@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+DIR="$HOME/.config/rofi"
+rofi_cmd="rofi -theme $DIR/themes/powermenu.rasi"
+uptime="$(uptime -p | sed -e 's/up //g')"
+
+# Options
+shutdown=""
+reboot=""
+logout=""
+
+# Get user confirmation 
+get_confirmation() {
+	rofi -dmenu -i \
+		 -no-fixed-num-lines \
+		 -p "Are You Sure? : " \
+		 -theme $DIR//themes/confirm.rasi
+}
+
+# Show message
+show_msg() {
+	rofi -theme $DIR/themes/askpass.rasi -e "Options  -  yes / y / no / n"
+}
+
+# Variable passed to rofi
+options="$shutdown\n$reboot\n$logout"
+
+if pidof i3; then
+    chosen="$(echo -e "$options" | $rofi_cmd -p "UP - $uptime" -dmenu -selected-row 2)"
+else
+    chosen="$(echo "$options" | $rofi_cmd -p "UP - $uptime" -dmenu -selected-row 2)"
+fi
+
+case $chosen in
+    $shutdown)
+		# ans=$(get_confirmation)
+		# if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+			systemctl poweroff
+		# elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+		# 	exit
+        # else
+	# 		show_msg
+        # fi
+        ;;
+    $reboot)
+		# ans=$(get_confirmation)
+		# if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+			systemctl reboot
+		# elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+		# 	exit
+        # else
+	# 		show_msg
+        # fi
+        ;;
+    $logout)
+		# ans=$(get_confirmation)
+		# if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+			if [ $(ps ax | grep -c bspw) -gt 1 ]; then
+				bspc quit
+			fi
+                        if [ $(ps ax | grep -c i3) -gt 1 ]; then
+			        i3-msg exit
+			fi
+		# elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+		# 	exit
+        # else
+	# 		show_msg
+        # fi
+        if pidof dwm; then
+            kill -USR1 $(pidof dwm)
+        fi
+        ;;
+esac
+

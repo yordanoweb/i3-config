@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+rofi \
+    -e "$(cal)" \
+    -location 3 \
+    -theme-str "window { width: 300px; margin: 45px 10px 0 0; padding: 25px; }"
