@@ -1,14 +1,14 @@
 These are my i3 window manager configs in Ubuntu
 
-* Requirements
+# Requirements
 
-- Install
+## Install
 
 ```bash
 sudo apt install picom feh rofi
 ```
 
-* Usage
+# Usage
 
 - Put the contents of **config** directory, into your **~/.config/**.
 
