@@ -9,6 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+bindsym Mod4+grave exec --no-startup-id i3-msg workspace back_and_forth
+
 client.focused          #4C7899 #0100C1 #FFFFFF #2E9EF4   #285577
 
 set $mod Mod4
