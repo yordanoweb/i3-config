@@ -15,3 +15,6 @@ sudo apt install i3 picom feh rofi dunst parcellite arc-theme
 - Put the **fonts** into **~/.fonts/**.
 
 - Put an image file in **~/Pictures/** named **background.jpg**.
+
+- Put the **gtkrc-2.0** file in $HOME with the name **.gtkrc-2.0**.
+
