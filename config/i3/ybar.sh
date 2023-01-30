@@ -53,6 +53,8 @@ do
     "full_text": "", "color": "#5f00af", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#875fd7"
   },{
     "full_text": " 🕢 $hour ", "color": "#ffffff", "background": "#5f00af", "separator": false, "border_right    ": 0, "border_left": 0, "separator_block_width": 0
+  },{
+    "full_text": "", "color": "#000000", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#5f00af"
   }]
 EOF
 )
