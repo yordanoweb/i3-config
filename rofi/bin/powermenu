@@ -25,7 +25,7 @@ show_msg() {
 # Variable passed to rofi
 options="$shutdown\n$reboot\n$logout"
 
-if pidof i3; then
+if pidof i3 || pidof sway; then
     chosen="$(echo -e "$options" | $rofi_cmd -p "UP - $uptime" -dmenu -selected-row 2)"
 else
     chosen="$(echo "$options" | $rofi_cmd -p "UP - $uptime" -dmenu -selected-row 2)"
