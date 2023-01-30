@@ -3,7 +3,7 @@ These are my i3 window manager configs in Ubuntu
 # Requirements
 
 ```bash
-sudo apt install i3 picom feh rofi dunst
+sudo apt install i3 picom feh rofi dunst parcellite arc-theme
 ```
 
 # Usage
