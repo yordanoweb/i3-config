@@ -1,14 +1,14 @@
 ## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
 
 [global]
-geometry = "300x5-30+20"
+geometry = "350x250-30+20"
 monitor = 0
 follow = mouse
 width = 300
-height = 80
+height = 150
 origin = top-right
 offset = 10x42
-corner_radius = 0
+corner_radius = 5 
 scale = 0
 notification_limit = 0
 progress_bar = true
