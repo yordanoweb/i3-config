@@ -18,3 +18,5 @@ sudo apt install i3 picom feh rofi dunst parcellite arc-theme
 
 - Put the **gtkrc-2.0** file in $HOME with the name **.gtkrc-2.0**.
 
+- Put the **config/gtk-3.0** directory in **~/.config/**.
+
