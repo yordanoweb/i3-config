@@ -1,10 +1,10 @@
 
 include ~/.config/i3/config
 
-gaps outer 10
-gaps inner 10
+gaps outer 5
+gaps inner 5
 
-exec "feh --bg-fill ~/Pictures/background.jpg"
-exec "dunst"
-exec "parcellite"
+exec_always swaybg -i ~/Pictures/background.jpg
+exec dunst
+exec parcellite
 
