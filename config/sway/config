@@ -1,0 +1,10 @@
+
+include ~/.config/i3/config
+
+gaps outer 10
+gaps inner 10
+
+exec "feh --bg-fill ~/Pictures/background.jpg"
+exec "dunst"
+exec "parcellite"
+
