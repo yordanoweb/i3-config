@@ -20,3 +20,15 @@ sudo apt install i3 picom feh rofi dunst parcellite arc-theme sway
 
 - Put the **config/gtk-3.0** directory in **~/.config/**.
 
+# i3 gaps workaround
+
+If you wish having gaps between windows:
+
+- Make a copy of your current running i3 executable.
+
+- Search any **Regolith** repo and download the **i3-gaps-wm** DEB.
+
+- Unzip the DEB file, and copy the **i3** executable in **/usr/bin/**.
+
+- Close the session and enter again.
+
