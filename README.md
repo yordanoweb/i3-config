@@ -32,3 +32,6 @@ If you wish having gaps between windows:
 
 - Close the session and enter again.
 
+# Screenshots
+
+![Config applied to LinuxMint](i3-config-screenshot.png)
