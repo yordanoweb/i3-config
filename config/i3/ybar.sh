@@ -22,9 +22,9 @@ do
   battery=$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep -o -E --color=never '[0-9]+%')
   audio=$(amixer get Master | grep -E -o --color=never '[0-9]+%' | head -n 1)
   bright=$(brightnessctl | grep Current | grep -o -E --color=never '[0-9]+%')
-  used_mem=$(free -h | grep Mem | awk '{print $3}' | sed "s/i//")
+  used_mem=$(free -h | grep Mem | awk '{print $3}' | sed "s/i//" | sed "s/,/./")
   free_disk=$(df -h | egrep "\/$" | awk '{print $4}')
-  cpu_load=$(top -b -d1 -n1|grep -i "Cpu(s)"|head -c21|cut -d ' ' -f3|cut -d '%' -f1 | sed "s/us,/0.0/")
+  cpu_load=$(top -b -d1 -n1 | grep Cpu | sed "s/,/./g" | awk 'BEGIN {cpu=0} {cpu+=$2; cpu+=$4} END {print cpu}')
   
   # comment this if you are not in a laptop and remove the corresponding JSON line 
   battery=$(upower -i $(upower -e | grep BAT) | grep --color=never -E "percentage" | awk '{print $2}')
