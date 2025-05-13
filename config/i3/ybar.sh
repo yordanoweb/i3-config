@@ -37,39 +37,39 @@ do
   },{
     "full_text": "", "color": "#ea3d3d", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#000000"
   },{
-    "full_text": "$cpu_load | $cpu_temp", "color": "#ffffff", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0, "background": "#ea3d3d"
+    "full_text": "  $cpu_load |  $cpu_temp", "color": "#ffffff", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0, "background": "#ea3d3d"
   },{
     "full_text": "", "color": "#3b47aa", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#ea3d3d"
   },{
-    "full_text": " Mem: $used_mem ", "color": "#ffffff", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0, "background": "#3b47aa"
+    "full_text": "  $used_mem ", "color": "#ffffff", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0, "background": "#3b47aa"
   },{
     "full_text": "", "color": "#5f00af", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#3b47aa"
   },{
-    "full_text": " Root: $free_root_disk | Data: $free_data_disk ", "color": "#ffffff", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0, "background": "#5f00af"
+    "full_text": "  /: $free_root_disk |  Data: $free_data_disk ", "color": "#ffffff", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0, "background": "#5f00af"
   },{
     "full_text": "", "color": "#875fd7", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#5f00af"
   },{
-    "full_text": " Vol: $audio ", "color": "#ffffff", "background": "#875fd7", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
+    "full_text": "   $audio ", "color": "#ffffff", "background": "#875fd7", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
   },{
     "full_text": "", "color": "#3b47aa", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#875fd7"
   },{
-    "full_text": " Bright: $bright ", "color": "#ffffff", "background": "#3b47aa", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
+    "full_text": "  $bright ", "color": "#ffffff", "background": "#3b47aa", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
   },{
     "full_text": "", "color": "#ea3d3d", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#3b47aa"
   },{
-    "full_text": " Bat: $battery ", "color": "#ffffff", "background": "#ea3d3d", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
+    "full_text": "  $battery ", "color": "#ffffff", "background": "#ea3d3d", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
   },{
     "full_text": "", "color": "#2c7b39", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#ea3d3d"
   },{
-    "full_text": " Net: $ip_addr ", "color": "#ffffff", "background": "#2c7b39", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
+    "full_text": "  $ip_addr ", "color": "#ffffff", "background": "#2c7b39", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
   },{
     "full_text": "", "color": "#875fd7", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#2c7b39"
   },{
-    "full_text": " $today ", "color": "#ffffff", "background": "#875fd7", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
+    "full_text": "  $today ", "color": "#ffffff", "background": "#875fd7", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
   },{
     "full_text": "", "color": "#5f00af", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#875fd7"
   },{
-    "full_text": " $hour ", "color": "#ffffff", "background": "#5f00af", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
+    "full_text": "  $hour ", "color": "#ffffff", "background": "#5f00af", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
   },{
     "full_text": "", "color": "#000000", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#5f00af"
   }]
