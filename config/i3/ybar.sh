@@ -23,9 +23,10 @@ do
   audio=$(amixer get Master | grep -E -o --color=never '[0-9]+%' | head -n 1)
   bright=$(brightnessctl | grep Current | grep -o -E --color=never '[0-9]+%')
   used_mem=$(free -h | grep Mem | awk '{print $3}' | sed "s/i//" | sed "s/,/./")
-  free_disk=$(df -h | egrep "\/$" | awk '{print $4}')
+  free_root_disk=$(df -h | egrep "\/$" | awk '{print $4}')
+  free_data_disk=$(df -h | egrep "\/DATA$" | awk '{print $4}')
   cpu_load=$(top -b -d1 -n1 | grep Cpu | sed "s/,/./g" | awk 'BEGIN {cpu=0} {cpu+=$2; cpu+=$4} END {printf " CPU: %4s %% ", cpu}')
-  cpu_temp=$(sensors | awk '/Pack/ {print $4" "}' | sed "s/+//" | sed "s/.0//")
+  cpu_temp=$(sensors | awk '/Pack/ {print $4" "}' | sed "s/+//")
   
   # comment this if you are not in a laptop and remove the corresponding JSON line 
   battery=$(upower -i $(upower -e | grep BAT) | grep --color=never -E "percentage" | awk '{print $2}')
@@ -44,7 +45,7 @@ do
   },{
     "full_text": "", "color": "#5f00af", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#3b47aa"
   },{
-    "full_text": " Root: $free_disk ", "color": "#ffffff", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0, "background": "#5f00af"
+    "full_text": " Root: $free_root_disk | Data: $free_data_disk ", "color": "#ffffff", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0, "background": "#5f00af"
   },{
     "full_text": "", "color": "#875fd7", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#5f00af"
   },{
