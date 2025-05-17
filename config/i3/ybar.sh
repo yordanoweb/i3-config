@@ -73,7 +73,7 @@ do
   },{
     "full_text": "", "color": "#ea3d3d", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#000000"
   },{
-    "full_text": "   CPU: $cpu_load |  $cpu_temp", "color": "#ffffff", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0, "background": "#ea3d3d"
+    "full_text": "   $cpu_load |  $cpu_temp", "color": "#ffffff", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0, "background": "#ea3d3d"
   },{
     "full_text": "", "color": "#3b47aa", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#ea3d3d"
   },{
