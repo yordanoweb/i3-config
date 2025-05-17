@@ -18,6 +18,22 @@ format_percent() {
    }'
 }
 
+get_battery_icon() {
+    percent=$(echo "$1" | tr -d '%')
+
+    if [ "$percent" -lt 20 ]; then
+        echo ""  # 0-19%
+    elif [ "$percent" -lt 40 ]; then
+        echo ""  # 20-39%
+    elif [ "$percent" -lt 60 ]; then
+        echo ""  # 40-59%
+    elif [ "$percent" -lt 80 ]; then
+        echo ""  # 60-79%
+    else
+        echo ""  # 80-100%
+    fi
+}
+
 echo '{ "version": 1 }'
 
 # Begin the endless array.
@@ -38,6 +54,7 @@ do
   fi
 
   battery=$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep -o -E --color=never '[0-9]+%')
+  battery_icon=$(get_battery_icon "$battery")
   audio=$(amixer get Master | grep -E -o --color=never '[0-9]+%' | head -n 1)
   bright=$(brightnessctl | grep Current | grep -o -E --color=never '[0-9]+%')
   used_mem=$(free -h | grep Mem | awk '{print $3}' | sed "s/i//" | sed "s/,/./")
@@ -76,7 +93,7 @@ do
   },{
     "full_text": "", "color": "#ea3d3d", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#3b47aa"
   },{
-    "full_text": "   $battery ", "color": "#ffffff", "background": "#ea3d3d", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
+    "full_text": " $battery_icon  $battery ", "color": "#ffffff", "background": "#ea3d3d", "separator": false, "border_right": 0, "border_left": 0, "separator_block_width": 0
   },{
     "full_text": "", "color": "#2c7b39", "separator": false, "border_right": 0, "border_left": 0, "border_bottom": 4, "border_top": 0, "separator_block_width": 0, "background": "#ea3d3d"
   },{
