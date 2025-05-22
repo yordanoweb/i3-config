@@ -11,9 +11,35 @@
 
 bindsym Mod4+grave exec --no-startup-id i3-msg workspace back_and_forth
 
-client.focused          #4C7899 #0100C1 #FFFFFF #2E9EF4   #285577
-
 set $mod Mod4
+
+set_from_resource $background i3wm.background  #1E1E2E
+set_from_resource $foreground i3wm.foreground  #CDD6F4
+set_from_resource $color0 i3wm.color0  #45475A
+set_from_resource $color1 i3wm.color1  #F38BA8
+set_from_resource $color2 i3wm.color2  #A6E3A1
+set_from_resource $color3 i3wm.color3  #F9E2AF
+set_from_resource $color4 i3wm.color4  #89B4FA
+set_from_resource $color5 i3wm.color5  #F5C2E7
+set_from_resource $color6 i3wm.color6  #94E2D5
+set_from_resource $color7 i3wm.color7  #BAC2DE
+set_from_resource $color8 i3wm.color8  #585B70
+set_from_resource $color9 i3wm.color9  #F38BA8
+set_from_resource $color10 i3wm.color10  #A6E3A1
+set_from_resource $color11 i3wm.color11  #F9E2AF
+set_from_resource $color12 i3wm.color12  #89B4FA
+set_from_resource $color13 i3wm.color13  #F5C2E7
+set_from_resource $color14 i3wm.color14  #94E2D5
+set_from_resource $color15 i3wm.color15  #A6ADC8
+
+client.background $background
+
+# <border color> <bg color> <text color> <indicator color> <child border color>
+client.focused $color9 $color1 $foreground $foreground $color9
+client.unfocused $color9 $color0 $color12 $foreground $color9
+client.focused_inactive $color9 $color0 $color10 $foreground $color9
+client.urgent $color9 $background $foreground $foreground $color9
+client.placeholder $color9 $background $foreground $foreground $color9
 
 for_window [workspace="1"] layout tabbed
 for_window [workspace="2"] layout tabbed
