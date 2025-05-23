@@ -27,3 +27,5 @@ pip3 install wal
 # Screenshots
 
 ![Config applied to LinuxMint](screenshots/i3-config-screenshot.png)
+
+![Config applied to LinuxMint](screenshots/i3-config-wal-colors.png)
