@@ -11,8 +11,6 @@
 
 bindsym Mod4+grave exec --no-startup-id i3-msg workspace back_and_forth
 
-set $mod Mod4
-
 set_from_resource $background i3wm.background  #1E1E2E
 set_from_resource $foreground i3wm.foreground  #CDD6F4
 set_from_resource $color0 i3wm.color0  #45475A
@@ -34,14 +32,16 @@ set_from_resource $color15 i3wm.color15  #A6ADC8
 
 client.background $background
 
-# <border color> <bg color> <text color> <indicator color> <child border color>
-client.focused $color9 $color1 $foreground $foreground $color9
-client.unfocused $color9 $color0 $color12 $foreground $color9
-client.focused_inactive $color9 $color0 $color10 $foreground $color9
-client.urgent $color9 $background $foreground $foreground $color9
-client.placeholder $color9 $background $foreground $foreground $color9
+# colors                <border> <bg>     <text>   <indicator>  <child border>
+client.focused          $color9  $color0  $color7  $foreground  $color9
+client.unfocused        $color9  $color0  $color1  $foreground  $color9
+client.focused_inactive $color9  $color0  $color7  $foreground  $color9
+client.urgent           $color9  $color0  $color7  $foreground  $color9
+client.placeholder      $color9  $color0  $color7  $foreground  $color9
 
-for_window [workspace="1"] layout tabbed
+set $mod Mod4
+
+for_window [workspace="1"] layout default
 for_window [workspace="2"] layout tabbed
 for_window [workspace="3"] layout tabbed
 for_window [workspace="4"] layout tabbed
@@ -50,12 +50,14 @@ for_window [workspace="6"] layout tabbed
 for_window [workspace="7"] layout tabbed
 for_window [workspace="8"] layout tabbed
 
+gaps inner 10
+gaps outer 0
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-# font pango:Iosevka 14
-
-# Get font from https://github.com/jwe66/0xProtoNerdFont
-font pango:0xProto Nerd Font 13
+# font pango:0xProto Nerd Font 13
+# font pango:FiraCode Nerd Font 13
+font pango:Iosevka 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -252,16 +254,19 @@ exec --no-startup-id picom
 exec --no-startup-id "feh --bg-fill ~/Pictures/background.jpg"
 exec --no-startup-id "dunst"
 exec --no-startup-id "parcellite"
+exec --no-startup-id "gnome-terminal -- /home/yordano/bin/tmux_wins"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         # position top
         colors {
-               focused_workspace  #4C7899 #0100c1 #FFFFFF
+	       # focused_workspace <border color> <background color> <text color>
+               focused_workspace $color9 $color1 $foreground
         }
 
         # status_command i3status
         status_command ~/.config/i3/ybar.sh
         # status_command py3status
 }
+c
