@@ -34,6 +34,16 @@ get_battery_icon() {
     fi
 }
 
+battery_alert_sent=0
+send_battery_alert() {
+    percent=$(echo "$1" | tr -d '%')
+
+    if [ "$percent" -le 15 ] && [ "$battery_alert_sent" -eq 0 ]; then
+        notify-send -w -u critical "Battery below limit 15%"
+        battery_alert_sent=1
+    fi
+}
+
 echo '{ "version": 1 }'
 
 # Begin the endless array.
@@ -53,8 +63,6 @@ do
     ip_addr="offline"
   fi
 
-  battery=$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep -o -E --color=never '[0-9]+%')
-  battery_icon=$(get_battery_icon "$battery")
   audio=$(amixer get Master | grep -E -o --color=never '[0-9]+%' | head -n 1)
   bright=$(brightnessctl | grep Current | grep -o -E --color=never '[0-9]+%')
   used_mem=$(free -h | grep Mem | awk '{print $3}' | sed "s/i//" | sed "s/,/./")
@@ -66,6 +74,8 @@ do
 
   # comment this if you are not in a laptop and remove the corresponding JSON line 
   battery=$(upower -i $(upower -e | grep BAT) | grep --color=never -E "percentage" | awk '{print $2}')
+  battery_icon=$(get_battery_icon "$battery")
+  send_battery_alert "$battery"
 
   JSON=$(cat <<EOF
   ,[{
