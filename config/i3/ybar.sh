@@ -44,6 +44,63 @@ send_battery_alert() {
     fi
 }
 
+XRES="$HOME/.Xresources"
+
+# Function to get default if not found
+get_color() {
+    key="$1"
+    value=$(grep -E "^\*\.$key:" "$XRES" | awk '{ print $2 }')
+
+    if [ -n "$value" ]; then
+        echo "$value"
+    else
+        case "$key" in
+            background) echo "#0d0f12" ;;
+            foreground) echo "#eeeedf" ;;
+            color0) echo "#0d0f12" ;;
+            color1) echo "#656053" ;;
+            color2) echo "#996A3E" ;;
+            color3) echo "#CC9F66" ;;
+            color4) echo "#7D8082" ;;
+            color5) echo "#BFAE8E" ;;
+            color6) echo "#ECD79F" ;;
+            color7) echo "#eeeedf" ;;
+            color8) echo "#a6a69c" ;;
+            color9) echo "#656053" ;;
+            color10) echo "#996A3E" ;;
+            color11) echo "#CC9F66" ;;
+            color12) echo "#7D8082" ;;
+            color13) echo "#BFAE8E" ;;
+            color14) echo "#ECD79F" ;;
+            color15) echo "#eeeedf" ;;
+            color66) echo "#0d0f12" ;;
+            *) echo "#000000" ;;  # fallback for unknown keys
+        esac
+    fi
+}
+
+# Assigning colors to variables
+background=$(get_color "background")
+foreground=$(get_color "foreground")
+
+color0=$(get_color "color0")
+color1=$(get_color "color1")
+color2=$(get_color "color2")
+color3=$(get_color "color3")
+color4=$(get_color "color4")
+color5=$(get_color "color5")
+color6=$(get_color "color6")
+color7=$(get_color "color7")
+color8=$(get_color "color8")
+color9=$(get_color "color9")
+color10=$(get_color "color10")
+color11=$(get_color "color11")
+color12=$(get_color "color12")
+color13=$(get_color "color13")
+color14=$(get_color "color14")
+color15=$(get_color "color15")
+color16=$(get_color "color16")
+
 echo '{ "version": 1 }'
 
 # Begin the endless array.
