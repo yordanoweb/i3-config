@@ -44,13 +44,31 @@ send_battery_alert() {
     fi
 }
 
+background=""
+foreground=""
 
-XRES="$HOME/.Xresources"
+color0=""
+color1=""
+color2=""
+color3=""
+color4=""
+color5=""
+color6=""
+color7=""
+color8=""
+color9=""
+color10=""
+color11=""
+color12=""
+color13=""
+color14=""
+color15=""
+color16=""
 
 # Function to get default if not found
 get_color() {
     key="$1"
-    value=$(grep -E "^\*\.$key:" "$XRES" | awk '{ print $2 }')
+    value=$(xrdb -query | grep "$key" | awk '{ print $2 }')
 
     if [ -n "$value" ]; then
         echo "$value"
@@ -74,33 +92,37 @@ get_color() {
             color13) echo "#BFAE8E" ;;
             color14) echo "#ECD79F" ;;
             color15) echo "#eeeedf" ;;
-            color66) echo "#0d0f12" ;;
+            color16) echo "#0d0f12" ;;
             *) echo "#000000" ;;  # fallback for unknown keys
         esac
     fi
 }
 
-# Assigning colors to variables
-background=$(get_color "background")
-foreground=$(get_color "foreground")
+assign_colors() {
 
-color0=$(get_color "color0")
-color1=$(get_color "color1")
-color2=$(get_color "color2")
-color3=$(get_color "color3")
-color4=$(get_color "color4")
-color5=$(get_color "color5")
-color6=$(get_color "color6")
-color7=$(get_color "color7")
-color8=$(get_color "color8")
-color9=$(get_color "color9")
-color10=$(get_color "color10")
-color11=$(get_color "color11")
-color12=$(get_color "color12")
-color13=$(get_color "color13")
-color14=$(get_color "color14")
-color15=$(get_color "color15")
-color16=$(get_color "color16")
+    # Assigning colors to variables
+    background=$(get_color "background")
+    foreground=$(get_color "foreground")
+    
+    color0=$(get_color "color0")
+    color1=$(get_color "color1")
+    color2=$(get_color "color2")
+    color3=$(get_color "color3")
+    color4=$(get_color "color4")
+    color5=$(get_color "color5")
+    color6=$(get_color "color6")
+    color7=$(get_color "color7")
+    color8=$(get_color "color8")
+    color9=$(get_color "color9")
+    color10=$(get_color "color10")
+    color11=$(get_color "color11")
+    color12=$(get_color "color12")
+    color13=$(get_color "color13")
+    color14=$(get_color "color14")
+    color15=$(get_color "color15")
+    color16=$(get_color "color16")
+
+}
 
 echo '{ "version": 1 }'
 
@@ -112,6 +134,8 @@ echo '[]'
 
 while :;
 do
+  assign_colors
+
   hour=$(date "+%H:%M:%S")
   today=$(date "+%a, %b/%d")
 
