@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 bindsym Mod4+grave exec --no-startup-id i3-msg workspace back_and_forth
+bindsym Mod4+apostrophe exec --no-startup-id i3-msg workspace back_and_forth
 
 set_from_resource $background i3wm.background  #1E1E2E
 set_from_resource $foreground i3wm.foreground  #CDD6F4
@@ -92,9 +93,11 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Increase brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id sudo brightnessctl set +10%
+bindsym XF86AudioNext exec --no-startup-id sudo brightnessctl set +10%
 
 # Decrease brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id sudo brightnessctl set 10%-
+bindsym XF86AudioPrev exec --no-startup-id sudo brightnessctl set 10%-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -251,10 +254,14 @@ bindsym $mod+r mode "resize"
 
 exec --no-startup-id numlockx on
 exec --no-startup-id picom
-exec --no-startup-id "feh --bg-fill ~/Pictures/background.jpg"
+# exec --no-startup-id "feh --bg-fill ~/Pictures/background.jpg"
 exec --no-startup-id "dunst"
 exec --no-startup-id "parcellite"
 exec --no-startup-id "gnome-terminal -- /home/yordano/bin/tmux_wins"
+exec --no-startup-id "setxkbmap -layout br"
+exec --no-startup-id "xrandr --output HDMI-1 --auto --right-of eDP-1"
+exec --no-startup-id "wal -a 90 -i (ls /home/yordano/.config/variety/wallpaper/*.jpg | tail -n 1)"
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
