@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
 DIR="$HOME/.config/rofi"
-rofi_cmd="rofi -theme $DIR/themes/powermenu.rasi"
+rofi_cmd="rofi -theme ~/.local/share/rofi/themes/rounded-gray-dark.rasi"
+# rofi_cmd="rofi -theme $DIR/themes/powermenu.rasi"
 uptime="$(uptime -p | sed -e 's/up //g')"
 
 # Options
-shutdown=""
-reboot=""
-logout=""
+shutdown="⏻   Shutdown"
+reboot="↻    Reboot"
+logout="   Logout"
+suspend="  Suspend"
 
 # Get user confirmation 
 get_confirmation() {
@@ -23,7 +25,7 @@ show_msg() {
 }
 
 # Variable passed to rofi
-options="$shutdown\n$reboot\n$logout"
+options="$suspend\n$shutdown\n$reboot\n$logout"
 
 if pidof i3 || pidof sway; then
     chosen="$(echo -e "$options" | $rofi_cmd -p "UP - $uptime" -dmenu -selected-row 2)"
@@ -32,6 +34,9 @@ else
 fi
 
 case $chosen in
+    $suspend)
+	sudo systemctl suspend
+	;;
     $shutdown)
 		# ans=$(get_confirmation)
 		# if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
@@ -71,4 +76,3 @@ case $chosen in
         fi
         ;;
 esac
-
