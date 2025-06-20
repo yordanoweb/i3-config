@@ -37,3 +37,16 @@ pip3 install wal
 - The colorscheme is applied to i3, rofi, dunst, and gtk3.
 
 This way, we get a dynamic colorscheme that changes with the wallpaper every time we call `wal`.
+
+# Notes about multi-monitor
+
+If something goes wrong and the second monitor is back, unassign and assign again its placement. Suppose you have it at your right of main screen, then swap it between left and the set to the right again.
+
+```bash
+# send to left, the opposite side
+xrandr --output HDMI-1 --auto --left-of eDP-1
+# send to the desired side
+xrandr --output HDMI-1 --auto --right-of eDP-1
+```
+
+Looks annoying to do it, but solves quickly the issue... ;)
