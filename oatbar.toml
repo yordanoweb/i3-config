@@ -1,0 +1,142 @@
+[[bar]]
+height=32
+blocks_left=["launcher", "workspace", "active_window"]
+blocks_right=["battery", "S", "memory_usage", "S", "cpu_temp", "S", "cpu_usage", "S", "bright", "S", "vol", "S", "disk_free", "layout_enum", "clock"]
+background="#191919dd"
+margin=3
+
+[[var]]
+name="theme_color"
+value="#c7f2bb"
+#value="#facd5a"
+#value="#f9dbff"
+#value="#9cf7ff"
+
+[[default_block]]
+background="#191919dd"
+active_background="#333333dd"
+active_overline_color = "${theme_color}"
+active_foreground = "${theme_color}"
+active_output_format = '<span weight="bold">${value}</span>'
+
+[[command]]
+name="bright"
+command="~/bin/get_brightness.py"
+interval=3
+
+[[command]]
+name="battery"
+command="~/bin/get_battery_percent.py"
+interval=5
+
+[[command]]
+name="memory_usage"
+command="~/bin/get_memory_usage.py"
+interval=3
+
+[[command]]
+name="cpu_temp"
+command="sensors | grep Package | awk '{print $4}'"
+interval=3
+
+[[command]]
+name="vol"
+command="~/bin/get_volume.py | jq '.volume'"
+interval=1
+
+[[command]]
+name="cpu_usage"
+command="~/bin/get_cpu_usage.py | jq '.cpu_usage_percent'"
+interval=5
+
+[[command]]
+name="disk_free"
+command="df -h / | tail -1 | awk '{print $5}'"
+interval=60
+
+[[command]]
+name="clock"
+command="date '+%a %b %e %H:%M:%S'"
+interval=1
+
+[[command]]
+name="desktop"
+command="oatbar-desktop"
+
+[[command]]
+name="keyboard"
+command="oatbar-keyboard"
+
+[[block]]
+name="S"
+type = "text"
+separator_type = "gap"
+value = "|"
+
+[[block]]
+name="bright"
+type="text"
+value="<span foreground='#6c757d'> </span> <span foreground='#ef476f'>${bright:value}%</span>"
+
+[[block]]
+name="battery"
+type="text"
+value="<span foreground='#6c757d'></span>  <span foreground='#ef476f'>${battery:value}%</span>"
+
+[[block]]
+name="memory_usage"
+type="text"
+value="<span foreground='#6c757d'></span>  <span foreground='#e9c46a'>${memory_usage:value}%</span>"
+
+[[block]]
+name="vol"
+type="text"
+value="<span foreground='#6c757d'></span>  <span foreground='#a2d2ff'>${vol:value}%</span>"
+
+[[block]]
+name="cpu_temp"
+type="text"
+value="<span foreground='#6c757d'></span>  <span foreground='#ef476f'>${cpu_temp:value}</span>"
+
+[[block]]
+name="cpu_usage"
+type="text"
+value="<span foreground='#ef476f'>${cpu_usage:value}%</span>"
+
+[[block]]
+name="launcher"
+type="text"
+value="<span foreground='#9b5de5'><b>Run</b></span>"
+on_mouse_left="~/.config/rofi/bin/launcher"
+
+[[block]]
+name = 'workspace'
+type = 'enum'
+active = '${desktop:workspace.active}'
+variants = '${desktop:workspace.variants}'
+on_mouse_left = "oatbar-desktop $BLOCK_INDEX"
+
+[[block]]
+name = 'layout_enum'
+type = 'enum'
+active = '${keyboard:layout.active}'
+variants = '${keyboard:layout.variants}'
+on_mouse_left = "oatbar-keyboard layout set $BLOCK_INDEX"
+
+[[block]]
+name='disk_free'
+type = 'text'
+value = '<span foreground="#6c757d"></span>  <span foreground="#52b69a">${disk_free:value}</span>'
+
+[[block]]
+name = 'clock'
+type = 'text'
+value = '${clock:value}'
+
+[[block]]
+name='active_window'
+type = 'text'
+value = '<span foreground="#8a817c">:: ${desktop:window_title.value} ::</span>'
+show_if_matches = [['${desktop:window_title.value}','.+']]
+pango_markup = true
+on_mouse_left="~/.config/rofi/bin/windows"
