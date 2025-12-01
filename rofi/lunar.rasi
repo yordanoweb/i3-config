@@ -1,0 +1,134 @@
+* {
+  background-color: #1c1c1c;
+  text-color:       #aed6ea;
+  font:             "JetBrainsMono Nerd Font 14";
+  border-color:     #5f5faf;
+}
+
+/* Window */
+
+window {
+  transparency:   "real";
+  border:         2px;
+  border-radius:  4px;
+  padding:        12px 14px;
+  location:       center;
+  background-color: #1c1c1c;
+}
+
+/* Main layout */
+
+mainbox {
+  spacing:  16px;
+}
+
+inputbar {
+  padding:  0px 0px 0px 0px;
+  children: [prompt, entry];
+}
+
+prompt {
+  text-color:       #aed6ea;
+  font:             "JetBrainsMono Nerd Font Bold 14";
+}
+
+/* Entry line */
+
+entry {
+  placeholder:            "";
+  padding:                0px 0px 0px 5px;
+  text-color:             #aed6ea;
+  cursor-color:           #ffb86c;
+  cursor-width:           2px;
+  hide-cursor-on-empty:   false;
+  horizontal-align:       0.0;
+}
+
+/* Listview */
+
+listview {
+  lines:            10;
+  columns:          1;
+  fixed-height:     true;
+  dynamic:          false;
+  scrollbar:        false;
+  spacing:          1px;
+  padding:          10px 0px 0px 0px;
+}
+
+/* Elements */
+
+element {
+  padding:          1px 4px;
+  text-color:       #aed6ea;
+  background-color: #1c1c1c;
+}
+
+element normal.normal {
+  text-color:       #aed6ea;
+  background-color: #1c1c1c;
+}
+
+element selected.normal {
+  text-color:       #aed6ea;
+  background-color: #005fce;
+}
+
+element alternate.normal {
+  text-color:       #aed6ea;
+  background-color: #1c1c1c;
+}
+
+element active.normal {
+  text-color:       #aed6ea;
+  background-color: #005fce;
+}
+
+/* File icons and text */
+
+element-icon {
+  size:     1.2em;
+  padding:  0px 0px 0px 0px;
+}
+
+element-text {
+  highlight:       none;
+  vertical-align:  0.5;
+}
+
+/* Footer menu entries */
+
+mode-switcher {
+  spacing:  2px;
+  padding:  2px;
+}
+
+button {
+  padding:         0px 0px;
+  text-color:      #76c7ff;
+  horizontal-align: 0.0;
+}
+
+button selected {
+  background-color: #005fce;
+  text-color:       #aed6ea;
+}
+
+/* Optional top ASCII/logo area */
+
+textbox-logo {
+  expand: false;
+  content: " ";
+  /* You can fill this with ASCII art via a script, here we just reserve space */
+}
+
+/* Custom layout to mimic screenshot */
+
+window {
+  children: [mainbox];
+}
+
+mainbox {
+  children: [inputbar, listview, mode-switcher];
+}
+
